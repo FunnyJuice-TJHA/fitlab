@@ -1,0 +1,6 @@
+{
+  "name": "Polar Wrap",
+  "description": "시원한 쿨링과 은은한 향기를 선사하는 자가 점착식 의료용 밴드 폴라랩 제품 소개 및 문의 랜딩 페이지",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
