@@ -1,13 +1,336 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Polar Wrap: 편안한 회복을 위한 스마트한 선택 (1등급 의료기기)</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polar Wrap: 편안한 회복을 위한 스마트한 선택</title>
+  
+  <!-- Tailwind CSS (Zero Build CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'deep-navy': '#002b5b',
+            'mint-cooling': '#48c9b0',
+            'surface-gray': '#f4f7f6',
+            'surface-dim': '#d7dbda',
+            'caution-pink': '#fadbd8',
+            'clinical-white': '#ffffff',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
 
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+  </style>
+</head>
+<body class="bg-clinical-white text-deep-navy antialiased">
+
+  <!-- Navigation -->
+  <header class="bg-clinical-white border-b border-surface-gray sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-mint-cooling rounded-xl flex items-center justify-center text-white">
+            <i class="ri-snowflake-fill text-xl"></i>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-deep-navy">Polar Wrap</span>
+      </a>
+      <nav class="hidden md:flex gap-8 items-center text-xs font-semibold uppercase tracking-wider font-mono text-gray-500">
+        <a href="#intro" class="hover:text-mint-cooling transition-colors">How-to</a>
+        <a href="#simulator" class="hover:text-mint-cooling transition-colors">Simulator</a>
+        <a href="#instructions" class="hover:text-mint-cooling transition-colors">Instructions</a>
+        <a href="#contact" class="hover:text-mint-cooling transition-colors bg-mint-cooling/10 text-mint-cooling px-4 py-2 rounded-full">Contact</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden text-2xl text-deep-navy">
+        <i class="ri-menu-line"></i>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-surface-gray p-4 flex flex-col gap-4">
+        <a href="#intro" class="font-bold text-sm">How-to</a>
+        <a href="#simulator" class="font-bold text-sm">Simulator</a>
+        <a href="#instructions" class="font-bold text-sm">Instructions</a>
+        <a href="#contact" class="font-bold text-sm text-mint-cooling">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-16 lg:py-28 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7 flex flex-col gap-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-mint-cooling/10 text-mint-cooling text-xs font-bold rounded-full self-start border border-mint-cooling/20">
+        <i class="ri-heart-pulse-fill"></i> 정식 등록 1등급 의료기기
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+        POLAR WRAP 폴라랩 :<br />
+        <span class="text-mint-cooling mt-2 block">시원함에 은은한 향기를 더하다,</span>
+        편안한 회복을 위한 스마트한 선택
+      </h1>
+      <p class="text-gray-600 leading-relaxed font-sans max-w-lg mt-2">
+        신체 국소 부위를 단단하게 압박하고 안정적으로 지지해주며, 함유된 천연 멘톨과 부드러운 라벤더 아로마 에센스가 상쾌하고 조화로운 쿨링감을 제공하는 자가 점착식 의료용 압박 밴드입니다.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-6">
+        <a href="#contact" class="bg-mint-cooling text-white text-sm font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap">제품 보급 및 대량 문의</a>
+        <a href="#simulator" class="border-2 border-deep-navy text-deep-navy text-sm font-semibold px-8 py-4 rounded-xl hover:bg-surface-gray transition-colors whitespace-nowrap">기화 쿨링 스마트 체험</a>
+      </div>
+    </div>
+    <div class="lg:col-span-5 flex justify-center">
+      <div class="w-full max-w-[420px] aspect-square bg-gradient-to-br from-mint-cooling/20 to-blue-50/50 rounded-3xl p-6 border shadow-sm flex items-center justify-center relative overflow-hidden">
+        <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur px-2 py-1 rounded border border-surface-dim text-[10px] font-mono font-bold tracking-widest text-deep-navy">COMPRESSION BANDAGE</div>
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuALdMKo9-eglc5m5SFnpSKJbWRNY7mcIymUvRV7gv_RnBcsdlQD8WpQvuMSLhV4IR-KAlG3eEMJ2Ipa2jqylTJpm9H6Vn-cGZfSH19zBGvEtriTz6FIy8kY7BzsdmG68Tqqzx4TyUp0mAVxtHTo-IgtJkQTjLPkYD7Gy02eQzYVTAh4JdObVFRiRaWYZ5x8GDVUktPKrTWeJmE25qKcDu1goSwqg3A453c2S6BK_LJLOgoc6vu2e9whW2b-_-OOXXmRfxK09i1nDG0" alt="Polar Wrap Bandage 3D Render" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section id="intro" class="bg-surface-gray py-24 border-y border-surface-dim/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-xs font-mono font-bold text-mint-cooling uppercase">Core Superiority</span>
+        <h2 class="text-3xl font-extrabold mt-2">폴라랩 고유 특징</h2>
+        <p class="text-sm text-gray-500 mt-3 max-w-xl mx-auto">폴라랩만의 차별화된 직조 기술과 편안한 성분 조합을 실감해보세요.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-8 rounded-2xl border border-surface-dim hover-lift">
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling rounded-xl flex items-center justify-center mb-5"><i class="ri-snowflake-fill text-2xl"></i></div>
+          <h3 class="text-base font-bold mb-2">상쾌한 쿨링과 릴렉싱</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">멘톨 특유의 상쾌함과 천연 라벤더 오일의 보드라움이 만나 피부 자극 없는 기화 온도 저하 밸런스를 구축했습니다.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-surface-dim hover-lift">
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling rounded-xl flex items-center justify-center mb-5"><i class="ri-fingerprint-fill text-2xl"></i></div>
+          <h3 class="text-base font-bold mb-2">조밀한 자가 점착</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">피부나 체모에는 붙지 않고 오직 밴드 자체 표면끼리만 고강도 마찰 점착되어 탈거 시 고통이 전혀 없습니다.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-surface-dim hover-lift">
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling rounded-xl flex items-center justify-center mb-5"><i class="ri-body-scan-fill text-2xl"></i></div>
+          <h3 class="text-base font-bold mb-2">인체공학적 다용도 안착</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">굴곡이 크고 활동량이 많은 팔꿈치, 손목, 체중 부하 무릎관절 등에도 들뜸 없이 탄력 있게 압박 밀착합니다.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-surface-dim hover-lift">
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling rounded-xl flex items-center justify-center mb-5"><i class="ri-shield-check-fill text-2xl"></i></div>
+          <h3 class="text-base font-bold mb-2">청결한 일회용 밀봉</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">롤별로 습기가 보존되는 개별 멸균 챔버 패킹 방식을 채용하여 보관 위생성과 오염 차단 기능이 극도로 뛰어납니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Simulator -->
+  <section id="simulator" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-mono font-bold text-mint-cooling uppercase">Interactive simulator</span>
+      <h2 class="text-3xl font-extrabold mt-2">자가 냉각 기화 시뮬레이터</h2>
+      <p class="text-sm text-gray-500 mt-3">도포된 비약리성 천연 에멀젼이 공기와 접촉하여 체온을 빼앗는 방식을 가상 체험해보세요.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white border border-surface-dim rounded-3xl p-8 lg:p-12 shadow-sm relative overflow-hidden">
+      
+      <!-- Visual Panel -->
+      <div id="sim-panel" class="bg-gradient-to-br from-gray-50 to-gray-100 border border-surface-dim rounded-3xl p-8 flex flex-col justify-center items-center relative min-h-[340px] transition-colors duration-500 overflow-hidden">
+         <div id="active-overlay" class="absolute inset-0 hidden mix-blend-overlay opacity-30 pointer-events-none">
+            <div class="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-mint-cooling to-transparent"></div>
+         </div>
+         
+         <div class="z-10 bg-white px-4 py-1.5 rounded-full border border-surface-dim text-[11px] font-mono font-bold uppercase tracking-widest mb-8 shadow-sm text-deep-navy">
+            Meter State: <span id="sim-status" class="text-gray-500">IDLE</span>
+         </div>
+         <div id="sim-temp" class="z-10 text-7xl font-mono font-black text-deep-navy mb-3 transition-colors duration-300">
+            36.5°C
+         </div>
+         <div class="z-10 text-[13px] font-bold text-gray-500 mt-2">피부 표면 측정 체온 (Skin Temp)</div>
+      </div>
+
+      <!-- Controls panel -->
+      <div class="flex flex-col justify-center gap-8">
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-bold text-deep-navy"><i class="ri-leaf-line text-mint-cooling font-bold mt-1 align-top text-lg"></i> 천연 멘톨 상쾌함 방출량</span>
+            <span id="menthol-val" class="font-mono text-mint-cooling font-bold bg-mint-cooling/10 px-2 py-0.5 rounded">50%</span>
+          </div>
+          <input type="range" id="sim-menthol" min="10" max="90" value="50" class="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-mint-cooling outline-none">
+        </div>
+        
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-bold text-deep-navy"><i class="ri-sparkling-fill text-purple-400 mt-1 align-top text-lg"></i> 라벤더 시트러스 릴렉스 농도</span>
+            <span id="lavender-val" class="font-mono text-purple-600 font-bold bg-purple-100 px-2 py-0.5 rounded">60%</span>
+          </div>
+          <input type="range" id="sim-lavender" min="20" max="100" value="60" class="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-purple-400 outline-none">
+        </div>
+
+        <button id="sim-toggle" class="bg-mint-cooling text-white font-bold py-4 rounded-xl w-full shadow-lg transition-colors mt-4 text-sm tracking-wide">
+          <i class="ri-snowflake-line"></i> 폴라랩 스마트 쿨링 활성화 (Apply Cold)
+        </button>
+        
+        <p class="text-[11px] text-gray-500 leading-relaxed mt-2 text-center break-keep bg-surface-gray py-2.5 px-4 rounded-lg font-medium">
+          도포된 기화 에멀젼 포뮬러 액체가 외부 공기와 반응하여 점진적으로 체온 기화 열손실을 유도합니다. 즉각 통증 인지 신경을 교란 완화시키는 상쾌한 메커니즘 상태를 오래 유지시킵니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Instructions -->
+  <section id="instructions" class="bg-surface-gray py-24 border-y border-surface-dim/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-xs font-mono font-bold text-mint-cooling uppercase">Step by step guidance</span>
+        <h2 class="text-3xl font-extrabold mt-2">올바른 사용 방법 4단계</h2>
+        <p class="text-sm text-gray-500 mt-3 max-w-xl mx-auto">단계별 수칙을 엄수하여 폴라랩 최적의 기계적 밀착 강도와 기화 향기를 발현시켜 보세요.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-7 rounded-2xl border border-surface-dim relative group hover-lift flex flex-col items-start gap-4">
+          <div class="text-5xl font-mono font-black text-gray-100 absolute top-4 right-4 transition-colors group-hover:text-mint-cooling/20 pointer-events-none">01</div>
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling flex items-center justify-center rounded-xl font-bold font-mono text-lg z-10 transition-colors group-hover:bg-mint-cooling group-hover:text-white">1</div>
+          <h4 class="font-bold relative z-10 text-base">준비 단계 (Prep)</h4>
+          <p class="text-xs text-gray-500 leading-relaxed relative z-10">파우치를 깔끔하게 개봉합니다. 피부 부위에 땀과 오일이 흥건하지 않도록 건조하게 수건으로 맑게 표면을 정돈합니다.</p>
+        </div>
+        
+        <div class="bg-white p-7 rounded-2xl border border-surface-dim relative group hover-lift flex flex-col items-start gap-4">
+          <div class="text-5xl font-mono font-black text-gray-100 absolute top-4 right-4 transition-colors group-hover:text-mint-cooling/20 pointer-events-none">02</div>
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling flex items-center justify-center rounded-xl font-bold font-mono text-lg z-10 transition-colors group-hover:bg-mint-cooling group-hover:text-white">2</div>
+          <h4 class="font-bold relative z-10 text-base">초입 안착 (Anchor)</h4>
+          <p class="text-xs text-gray-500 leading-relaxed relative z-10">밴드 첫 끝자락을 처치 부위에 가볍게 밀착시킵니다. 초입 1바퀴를 완전히 겹쳐 자가 점착력의 기준 고정점을 성립시킵니다.</p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-surface-dim relative group hover-lift flex flex-col items-start gap-4">
+          <div class="text-5xl font-mono font-black text-gray-100 absolute top-4 right-4 transition-colors group-hover:text-mint-cooling/20 pointer-events-none">03</div>
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling flex items-center justify-center rounded-xl font-bold font-mono text-lg z-10 transition-colors group-hover:bg-mint-cooling group-hover:text-white">3</div>
+          <h4 class="font-bold relative z-10 text-base">밀착 교차 (Wrap)</h4>
+          <p class="text-xs text-gray-500 leading-relaxed relative z-10">순차적 층위가 약 1/2에서 2/3 수준으로 마찰 겹치게끔 다듬습니다. 혈관 압박이 없도록 너무 강하게 텐션을 당기지 않습니다.</p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-surface-dim relative group hover-lift flex flex-col items-start gap-4">
+          <div class="text-5xl font-mono font-black text-gray-100 absolute top-4 right-4 transition-colors group-hover:text-mint-cooling/20 pointer-events-none">04</div>
+          <div class="w-12 h-12 bg-mint-cooling/10 text-mint-cooling flex items-center justify-center rounded-xl font-bold font-mono text-lg z-10 transition-colors group-hover:bg-mint-cooling group-hover:text-white">4</div>
+          <h4 class="font-bold relative z-10 text-base">마무리 결착 (Lock)</h4>
+          <p class="text-xs text-gray-500 leading-relaxed relative z-10">적재 타겟 면적을 완성한 후 가위로 단면을 자르거나 손으로 재단합니다. 끝을 손바닥 온열로 덮어 압착하여 접착을 완료시킵니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Caution -->
+  <section class="py-20 max-w-5xl mx-auto px-6">
+    <div class="bg-[#FFF0F0] border border-[#FFDADA] rounded-3xl p-8 md:p-12 flex flex-col items-center gap-6 shadow-sm overflow-hidden relative">
+      <!-- Decor -->
+      <i class="ri-error-warning-fill absolute -bottom-10 -right-6 text-[150px] text-red-500/5 rotate-[-15deg] pointer-events-none"></i>
+      
+      <div class="w-16 h-16 bg-deep-navy shrink-0 rounded-full flex items-center justify-center shadow-lg relative z-10">
+        <i class="ri-alarm-warning-fill text-3xl text-amber-300"></i>
+      </div>
+      <div class="text-center relative z-10">
+        <h2 class="text-xl md:text-2xl font-extrabold mb-1">꼭 알아두셔야 하는 필수 주의사항</h2>
+        <span class="text-[10px] uppercase font-mono font-bold tracking-widest text-red-400">Safety Guidelines & Exclusions</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 max-w-4xl text-xs text-deep-navy leading-relaxed font-semibold relative z-10 mt-4 bg-white/50 p-6 rounded-2xl">
+        <div class="flex items-start gap-2.5">
+          <i class="ri-checkbox-circle-fill text-red-400 mt-0.5 text-base"></i>
+          <span>본 폴라랩 제품은 오염을 방지하기 위한 전면 1회용 소모품이므로 탈거 후 재부착하거나 절대 세척하지 마십시오.</span>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <i class="ri-checkbox-circle-fill text-red-400 mt-0.5 text-base"></i>
+          <span>혈류 정체를 유발할 수 있으므로 극도로 강하게 텐션을 당겨 혈관을 압박하지 않도록 세밀히 조절하십시오.</span>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <i class="ri-checkbox-circle-fill text-red-400 mt-0.5 text-base"></i>
+          <span>출혈, 열상 상처 및 급성 습진, 거대 수포 질환 등 피부 표면막이 파괴된 환부에는 직접 마찰 접촉이 불허합니다.</span>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <i class="ri-checkbox-circle-fill text-red-400 mt-0.5 text-base"></i>
+          <span>알레르기를 보일 수 있는 극소량의 라텍스가 들어있습니다. 민감한 성향의 분은 사전에 짧게 확인 후 사용하십시오.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Form -->
+  <section id="contact" class="bg-surface-gray py-24 border-t border-surface-dim/40">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-xs font-mono font-bold text-mint-cooling uppercase">Contact & order</span>
+        <h2 class="text-3xl font-extrabold mt-2">B2B 제품 도입 및 대량 문의</h2>
+        <p class="text-sm text-gray-500 mt-3">병원, 기관 등 도입 희망 단가 제휴 문의사항을 남겨주시면 신속히 제안서를 파견해 드립니다.</p>
+      </div>
+      
+      <div class="bg-white border border-surface-dim rounded-3xl p-8 lg:p-10 shadow-sm relative overflow-hidden">
+        
+        <!-- Success State -->
+        <div id="form-success" class="hidden flex flex-col items-center justify-center py-16 text-center animate-[fadeIn_0.5s_ease-out]">
+          <i class="ri-checkbox-circle-fill text-[80px] text-mint-cooling mb-6 shadow-mint-cooling/30"></i>
+          <h3 class="text-2xl font-extrabold mb-3">소견 접수가 성공적으로 발송되었습니다</h3>
+          <p class="text-sm text-gray-500 mb-8 font-sans bg-surface-gray px-6 py-3 rounded-xl border border-surface-dim max-w-sm">남겨주신 정보로 개별 프로모션 단가 테이블과 샘플 시제품 가이드를 24시간 내에 안내드리겠습니다.</p>
+          <button id="reset-form" class="bg-deep-navy text-white px-8 py-3 rounded-xl text-sm font-bold shadow-md hover:opacity-90 transition-opacity">새로운 양식 폼 작성</button>
+        </div>
+
+        <!-- Initial Form -->
+        <form id="inquiry-form" class="flex flex-col gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="text-[11px] font-bold text-gray-500 uppercase block mb-2 tracking-widest font-mono">성함 / 직급 <span class="text-mint-cooling">*</span></label>
+              <input type="text" required class="w-full bg-surface-gray border border-transparent rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-mint-cooling transition-colors" placeholder="홍길동 과장">
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-gray-500 uppercase block mb-2 tracking-widest font-mono">기관명 / 병원명</label>
+              <input type="text" class="w-full bg-surface-gray border border-transparent rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-mint-cooling transition-colors" placeholder="ㅇㅇ재활의학과">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="text-[11px] font-bold text-gray-500 uppercase block mb-2 tracking-widest font-mono">연락처 번호 <span class="text-mint-cooling">*</span></label>
+              <input type="tel" required class="w-full bg-surface-gray border border-transparent rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-mint-cooling transition-colors" placeholder="010-0000-0000">
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-gray-500 uppercase block mb-2 tracking-widest font-mono">이메일 <span class="text-mint-cooling">*</span></label>
+              <input type="email" required class="w-full bg-surface-gray border border-transparent rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-mint-cooling transition-colors" placeholder="example@clinic.com">
+            </div>
+          </div>
+          <div>
+            <label class="text-[11px] font-bold text-gray-500 uppercase block mb-2 tracking-widest font-mono">문의 상세 내용 <span class="text-mint-cooling">*</span></label>
+            <textarea required rows="4" class="w-full bg-surface-gray border border-transparent rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-mint-cooling transition-colors resize-none" placeholder="시제품 데모 물량 공급, 대량 납품 할인 체계 등 상세한 문의 의도 사항을 기재 부탁드립니다."></textarea>
+          </div>
+          <button type="submit" class="bg-mint-cooling text-white font-bold py-4 rounded-xl mt-3 shadow-lg hover:shadow-mint-cooling/30 transition-all hover:-translate-y-0.5 active:scale-[0.98] text-sm">
+             <i class="ri-send-plane-fill mr-1 align-bottom text-base"></i> 도입 제휴 요청 안전 송신
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-deep-navy text-white text-center py-16 border-t border-deep-navy">
+    <div class="w-12 h-12 bg-mint-cooling rounded-xl flex items-center justify-center mx-auto mb-6">
+        <i class="ri-snowflake-fill text-2xl text-white"></i>
+    </div>
+    <div class="text-xs font-semibold uppercase tracking-wider text-white/50 font-mono flex flex-wrap justify-center gap-6 mb-8">
+        <a href="#" class="hover:text-mint-cooling transition-colors">이용약관</a>
+        <a href="#" class="hover:text-mint-cooling transition-colors">개인정보처리방침</a>
+        <a href="#" class="hover:text-mint-cooling transition-colors">품질 인증 면허 내역</a>
+    </div>
+    <div class="text-[11px] text-white/40 leading-relaxed font-sans mt-2 space-y-1">
+        <p>의료기기 제신 26-65호 | (주)피트핏 | 서울특별시 구로구 디지털로 300, 12층 1201호 지밸리비즈플라자</p>
+        <p>전환 마케팅 문의: 1566-2665 | 이메일 제휴 가이드: office@fitfit-clinical.co.kr</p>
+        <p class="mt-4 font-mono text-[10px] text-white/20 uppercase">&copy; 2026 FitFit Holdings Co., Ltd. All rights strictly reserved.</p>
+    </div>
+  </footer>
+
+  <!-- App logic file -->
+  <script src="./src/main.js"></script>
+</body>
+</html>
